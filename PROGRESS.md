@@ -9,12 +9,19 @@ Tick items as they land; add the date. Phases are explained in `docs/proposal.md
 - [x] Proposal, DNS/email walkthrough, light questionnaire, CLAUDE.md, HANDOFF.md
 
 ## Phase 1: cut-over (waiting on Cosmo)
-- [ ] Step 0: cPanel full backup, mailbox list, zone screenshot, public_html check (Cosmo)
+- [x] Step 0 dropped: Cosmo says nobody used the mail; site already archived (17 Nov)
+- [x] Phone steps page published: https://claude.ai/artifact/C1hhSoMyfnbfSnyYgnhibF
 - [ ] Step 1c: verify domain on GitHub (Cosmo)
 - [ ] Steps 2-4: BasicDNS, host records, email forwarding + aliases (Cosmo)
 - [ ] Step 5: DNS checks pass, HTTPS enforced (Claude)
 - [ ] Step 6: every alias tested from an outside address (Cosmo)
 - [ ] A quiet week, then the hosting's auto-renew off. Do not cancel until Cosmo says so
+
+## Phase 2.5: test mock-up (17 Nov, in progress). Spec `docs/specs/mockup.md`
+- [ ] Haiku: itch inventory (8 games) + music search
+- [ ] Sonnet: build `mockup/`
+- [ ] Manager: review, screenshots, publish as private artifact
+- [ ] Themed proposal page + full questionnaire (20+ multiple choice), published as artifact
 
 ## Open questions for Cosmo
 - Keep `contact@` as an alias too? The old site printed it. Recommended: yes, forwarding to the same people as `team@`.

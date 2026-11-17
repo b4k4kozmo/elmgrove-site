@@ -21,21 +21,9 @@ forwarding also works only with BasicDNS (or PremiumDNS).
 
 ---
 
-## Step 0: back up the hosting (Cosmo; about 15 min)
-Claude saved every public page and file into `archive/original-2024/` (13 files). What Claude cannot reach:
-
-1. cPanel → **Files → Backup → Download a Full Account Backup** (Backup Destination: Home Directory) and
-   download the `.tar.gz` when the email arrives. Also download **Home Directory**, **Email Forwarders** and
-   **Email Filters** from the same page.
-2. cPanel → **Email Accounts**: write down every mailbox (e.g. `contact@`). Open each in **Webmail** and
-   save anything worth keeping. The easy way is to add the mailbox to Thunderbird over IMAP and drag the
-   folders to Local Folders.
-3. cPanel → **Domains → Zone Editor → Manage**: screenshot the records. If any are not in the table above
-   (a Google or itch verification TXT, an extra subdomain), tell Claude so they get recreated.
-4. cPanel → **File Manager → public_html**: check for folders or files that the site never linked to.
-   Tell Claude what's there.
-
-Keep these backups **off the repo**, e.g. in `~/Archive/elmgrove-cpanel-2026-11/` on the PC.
+## Step 0: nothing to back up (decided 17 Nov)
+Cosmo: nobody used the mailboxes, so the mail is not kept. Every public page and file of the site is in
+`archive/original-2024/`. No cPanel backup is needed.
 
 ## Step 1: GitHub side (Claude did this; Cosmo does part c)
 a. Repo `b4k4kozmo/elmgrove-site`, Pages built by GitHub Actions from `site/`.
@@ -104,12 +92,19 @@ Claude can do this with `gh api -X PUT repos/b4k4kozmo/elmgrove-site/pages -F ht
 From an address *outside* the domain, send one email to each alias. Check that each one arrives, and look in spam too.
 
 ## Done checklist (only then think about the hosting)
-- [ ] Step 0 backups downloaded and opened once to check they're readable
 - [ ] Site loads at https://elmgrove.games and https://www.elmgrove.games without a warning
 - [ ] Every alias tested
 - [ ] One quiet week passes
 - [ ] Then: in Namecheap, turn **auto-renew OFF for the hosting plan only**. Keep the **domain's** auto-renew
       ON, and check its expiry date on the Domain List page. Cancel the hosting only when Cosmo says so.
+
+## Lock-down after the quiet week
+- cPanel: delete every mailbox (Email Accounts), the files in `public_html`, and any extra FTP accounts.
+- Namecheap: two-factor sign-in on; Domain Lock and Domain Privacy on; the domain's auto-renew on.
+- Hosting: auto-renew off; cancel when Cosmo is ready (cancelling wipes the account).
+
+A phone-friendly version of steps 1-4 plus this lock-down is `docs/migration/switch-steps.html`, published as
+a private Claude artifact: https://claude.ai/artifact/C1hhSoMyfnbfSnyYgnhibF
 
 ## If something goes wrong
 Going back takes one change: Namecheap → Nameservers → **Namecheap Web Hosting DNS**. The hosting is untouched, so

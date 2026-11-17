@@ -1,0 +1,163 @@
+<title>Elmgrove Switch-Over</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one torchlit column, a checklist you tick through on a phone. Deliberately single (dark) theme: the goblin den. */
+:root{
+  --soot:#12100e; --panel:#1c1814; --stone:#3b3229; --parch:#efe5d2; --muted:#b3a48b;
+  --torch:#e3a443; --moss:#93b06c; --ember:#d9734f;
+  --f-display:"Pixelify Sans", ui-monospace, "Courier New", monospace;
+  --f-body:"Atkinson Hyperlegible", system-ui, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme:dark;
+}
+body{background:var(--soot);color:var(--parch);font:16px/1.55 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px;
+  background-image:radial-gradient(ellipse 80% 40% at 50% -5%, rgba(227,164,67,.18), transparent 70%);}
+main{max-width:640px;margin:0 auto;display:grid;gap:22px}
+h1,h2{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:2rem;color:var(--torch)}
+h2{font-size:1.3rem}
+p{margin:0}
+.lede{color:var(--muted)}
+.meter{display:flex;align-items:center;gap:10px;font-family:var(--f-display);color:var(--muted);font-size:.95rem}
+.bar{flex:1;height:10px;background:var(--stone);border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--torch);transition:width .3s}
+section.step{background:var(--panel);border:2px solid var(--stone);border-radius:4px;padding:16px;display:grid;gap:12px}
+section.step.done{border-color:var(--moss)}
+.head{display:flex;gap:12px;align-items:baseline}
+.num{font-family:var(--f-display);color:var(--soot);background:var(--torch);min-width:2rem;text-align:center;border-radius:2px;padding:0 6px}
+.done .num{background:var(--moss)}
+.where{font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+ol,ul{margin:0;padding-left:1.3em;display:grid;gap:6px}
+b{color:var(--torch);font-weight:700}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th{text-align:left;color:var(--muted);font-weight:400;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;padding:4px 6px}
+td{border-top:1px solid var(--stone);padding:7px 6px;vertical-align:middle}
+code{font-family:var(--f-mono);font-size:.85em;color:var(--parch);word-break:break-all}
+button{font:inherit;cursor:pointer}
+.copy{font-family:var(--f-display);font-size:.8rem;background:transparent;color:var(--torch);border:1px solid var(--stone);border-radius:2px;padding:3px 8px;white-space:nowrap}
+.copy.ok{color:var(--moss);border-color:var(--moss)}
+.copy:focus-visible,.tick input:focus-visible{outline:2px solid var(--torch);outline-offset:2px}
+.tick{display:flex;gap:10px;align-items:center;font-family:var(--f-display);color:var(--muted);cursor:pointer}
+.tick input{width:22px;height:22px;accent-color:var(--moss)}
+.note{border-left:3px solid var(--ember);padding-left:10px;color:var(--muted);font-size:.92rem}
+.safe{border-left-color:var(--moss)}
+footer{color:var(--muted);font-size:.85rem;text-align:center}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+
+<main>
+  <header style="display:grid;gap:8px">
+    <p class="where">elmgrove.games → GitHub Pages</p>
+    <h1>Switch-over steps</h1>
+    <p class="lede">About 15 minutes. You need your Namecheap login and GitHub open in a browser (use "desktop site" on a phone: the GitHub app has no Pages settings). Do the steps in order. Nothing here touches the hosting, so the old site stays up as a fallback.</p>
+    <div class="meter"><span id="count">0 / 4</span><div class="bar"><i id="fill"></i></div></div>
+  </header>
+
+  <section class="step" data-step="1">
+    <div class="head"><span class="num">1</span><div><p class="where">GitHub</p><h2>Claim the domain on GitHub</h2></div></div>
+    <ol>
+      <li>Profile picture → <b>Settings</b> → <b>Pages</b> (left menu, under "Code, planning…").</li>
+      <li><b>Add a domain</b> → type <code>elmgrove.games</code> → Add.</li>
+      <li>GitHub shows a TXT record. Its host is <code>_github-pages-challenge-b4k4kozmo</code>. <b>Copy its value</b> and keep the tab open: you paste it in step 3.</li>
+    </ol>
+    <label class="tick"><input type="checkbox" id="s1"> Done</label>
+  </section>
+
+  <section class="step" data-step="2">
+    <div class="head"><span class="num">2</span><div><p class="where">Namecheap · Domain List</p><h2>Switch the nameservers</h2></div></div>
+    <ol>
+      <li><b>Domain List</b> → elmgrove.games → <b>Manage</b>.</li>
+      <li><b>Nameservers</b>: change <i>Namecheap Web Hosting DNS</i> to <b>Namecheap BasicDNS</b> → tick ✓ to save.</li>
+    </ol>
+    <p class="note">Go straight on to steps 3 and 4. Until they're done the site and mail have no address.</p>
+    <label class="tick"><input type="checkbox" id="s2"> Done</label>
+  </section>
+
+  <section class="step" data-step="3">
+    <div class="head"><span class="num">3</span><div><p class="where">Namecheap · Advanced DNS → Host Records</p><h2>Point the site at GitHub</h2></div></div>
+    <ol>
+      <li>Delete Namecheap's parking records if they're there: a <code>CNAME www → parkingpage.namecheap.com</code> and a <code>URL Redirect @</code>.</li>
+      <li><b>Add New Record</b> for each row. TTL: Automatic.</li>
+    </ol>
+    <div class="tbl"><table>
+      <thead><tr><th>Type</th><th>Host</th><th>Value</th><th></th></tr></thead>
+      <tbody id="records"></tbody>
+    </table></div>
+    <ol start="3">
+      <li>Back in the GitHub tab from step 1, press <b>Verify</b>. If it fails, wait ten minutes and try again.</li>
+    </ol>
+    <label class="tick"><input type="checkbox" id="s3"> Done</label>
+  </section>
+
+  <section class="step" data-step="4">
+    <div class="head"><span class="num">4</span><div><p class="where">Namecheap · Advanced DNS → Mail Settings</p><h2>Turn on email forwarding</h2></div></div>
+    <ol>
+      <li><b>Mail Settings</b> → choose <b>Email Forwarding</b> → save. Namecheap adds the mail records itself; don't add them by hand.</li>
+      <li>Add one forwarder per alias. They're under <b>Domain</b> tab → <b>Redirect Email</b>, or listed under Mail Settings. Type each person's own inbox as the destination.</li>
+    </ol>
+    <div class="tbl"><table>
+      <thead><tr><th>Alias</th><th>Forwards to</th></tr></thead>
+      <tbody>
+        <tr><td><code>cosmo</code></td><td>your own inbox</td></tr>
+        <tr><td><code>kyle</code></td><td>Kyle's inbox</td></tr>
+        <tr><td><code>krasiv</code></td><td>Krasiv's inbox</td></tr>
+        <tr><td><code>robert</code></td><td>Robert's inbox</td></tr>
+        <tr><td><code>team</code></td><td>everyone: add <code>team</code> once per person</td></tr>
+        <tr><td><code>contact</code></td><td>same people as <code>team</code> (the old site printed this address)</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Leave the catch-all (<code>*</code>) off: it mostly collects spam. Forwarding only receives mail. Sending <i>as</i> @elmgrove.games is a separate, optional step.</p>
+    <label class="tick"><input type="checkbox" id="s4"> Done</label>
+  </section>
+
+  <section class="step" style="border-style:dashed">
+    <div class="head"><span class="num">→</span><div><p class="where">Then</p><h2>Tell Claude "DNS is switched"</h2></div></div>
+    <p>Claude checks the records, turns on HTTPS once GitHub has issued the certificate (up to a day after the switch), and gives you a mail test: send one email from an outside address to each alias.</p>
+  </section>
+
+  <section class="step" style="border-style:dashed">
+    <div class="head"><span class="num">🔒</span><div><p class="where">A week later, once all is well</p><h2>Lock things down</h2></div></div>
+    <p>The old mailboxes and files aren't needed: the site is saved in the repo, and nobody used the mail.</p>
+    <ul>
+      <li><b>cPanel → Email Accounts</b>: delete every mailbox.</li>
+      <li><b>cPanel → File Manager → public_html</b>: delete the site files (the copy is in the repo).</li>
+      <li><b>cPanel → FTP Accounts</b>: delete any extra accounts.</li>
+      <li><b>Namecheap → Profile → Security</b>: turn on two-factor sign-in if it isn't on, and change the password if it's old or shared.</li>
+      <li><b>Domain List → elmgrove.games</b>: <b>Domain Lock</b> ON, <b>Domain Privacy</b> ON, the <b>domain's</b> auto-renew ON. Check the expiry date.</li>
+      <li><b>Hosting</b>: turn its auto-renew OFF. Cancel it when you're ready; cancelling wipes the account, which also cleans it up.</li>
+    </ul>
+    <p class="note safe">Undo at any point before cancelling: set the nameservers back to <i>Namecheap Web Hosting DNS</i> and the old site and mail come back.</p>
+  </section>
+
+  <footer>Full version with the reasons: <code>docs/migration/dns-and-email.md</code> in the elmgrove-site repo.</footer>
+</main>
+
+<script>
+const recs=[
+ ["A","@","185.199.108.153"],["A","@","185.199.109.153"],["A","@","185.199.110.153"],["A","@","185.199.111.153"],
+ ["AAAA","@","2606:50c0:8000::153"],["AAAA","@","2606:50c0:8001::153"],["AAAA","@","2606:50c0:8002::153"],["AAAA","@","2606:50c0:8003::153"],
+ ["CNAME","www","b4k4kozmo.github.io."],["TXT","_github-pages-challenge-b4k4kozmo","value from step 1"]];
+const tb=document.getElementById('records');
+recs.forEach(([t,h,v],i)=>{
+  const tr=document.createElement('tr');
+  const copyable=i<9;
+  tr.innerHTML=`<td>${t}</td><td><code>${h}</code></td><td><code>${v}</code></td><td>${copyable?`<button class="copy" type="button" id="cp${i}">Copy</button>`:''}</td>`;
+  tb.appendChild(tr);
+  if(copyable){const b=tr.querySelector('button');b.addEventListener('click',()=>{
+    const done=()=>{b.textContent='Copied';b.classList.add('ok');setTimeout(()=>{b.textContent='Copy';b.classList.remove('ok')},1500)};
+    navigator.clipboard?.writeText(v).then(done).catch(()=>{const r=document.createRange();r.selectNodeContents(tr.cells[2]);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'});
+  });}
+});
+const boxes=[...document.querySelectorAll('.tick input')];
+function load(){try{return JSON.parse(localStorage.getItem('elm-steps')||'{}')}catch(e){return {}}}
+function save(st){try{localStorage.setItem('elm-steps',JSON.stringify(st))}catch(e){}}
+const st=load();
+function paint(){let n=0;boxes.forEach(b=>{const on=b.checked;b.closest('section').classList.toggle('done',on);if(on)n++});
+  document.getElementById('count').textContent=n+' / 4';document.getElementById('fill').style.width=(n*25)+'%';}
+boxes.forEach(b=>{b.checked=!!st[b.id];b.addEventListener('change',()=>{st[b.id]=b.checked;save(st);paint()})});
+paint();
+</script>

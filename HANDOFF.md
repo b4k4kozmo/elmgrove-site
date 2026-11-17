@@ -1,6 +1,6 @@
 # Handoff: elmgrove-site
 
-**Last updated:** 2026-11-17, end of session 1 (Opus 5.5 managing).
+**Last updated:** 2026-11-17 evening, session 1 continuing (Opus 5.5 managing).
 
 ## How this job is run
 Cosmo's words: move elmgrove.games off Namecheap hosting to GitHub Pages, switch mail to forwarding aliases
@@ -14,8 +14,16 @@ surveys to Haiku, one worker at a time. Save progress often. Plan: `docs/proposa
 - Repo public on GitHub, Pages via Actions, custom domain `elmgrove.games` set.
 - Docs: proposal (phases 0-7), DNS + email walkthrough, light questionnaire (12 questions).
 
+## In progress: the test mock-up (phase 2.5, added 17 Nov)
+Cosmo asked for a clickable mock-up *before* the questionnaire: treehouse-bunker-inside-the-logo theme, arcade
+cabinets, Loot n' Goblin mood, Elmgrove-itch games only, jukebox, loot-hunt mini-game. Spec: `docs/specs/mockup.md`.
+Order: (1) Haiku inventory of the 8 itch games -> `mockup/data/games.json` + `mockup/assets/games/` and a music search;
+(2) Sonnet builds `mockup/` from the spec; (3) manager reviews (screenshots via headless Firefox) and publishes it as a
+private artifact; (4) themed proposal page with the full questionnaire, published as an artifact.
+Uncommitted files under `mockup/` are a worker's unreviewed output: review before committing.
+
 ## Waiting on Cosmo
-1. cPanel backup + list of mailboxes + Zone Editor screenshot + anything extra in public_html (walkthrough step 0).
+1. Phone steps page: https://claude.ai/artifact/C1hhSoMyfnbfSnyYgnhibF (mail is NOT kept; no cPanel backup needed).
 2. GitHub domain verification (step 1c), nameservers to BasicDNS, host records, email forwarding (steps 2-4).
 3. Forward-to addresses for each alias: he types them into Namecheap himself, never into this repo.
 4. Answers to the open questions in `PROGRESS.md`.
