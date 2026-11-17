@@ -55,7 +55,11 @@ Single dark theme on purpose (set `color-scheme: dark`, explicit `body` backgrou
 --loot:   #e3a443   torchlight gold: buttons, loot, prices
 --parch:  #efe5d2   text
 --soot:   #0f0b09   deepest shadow, cabinet screens' bezel
+--gem:    #2fd25a   emerald green (Loot n' Goblin title text and gems)
 ```
+- **Signature:** the logo and the Loot n' Goblin cover share a sky that fades from purple (#7a3fc0) at the top to
+  bright green (#1fd14a) at the bottom. Use that gradient in one or two places only: the hero window's sky and the
+  marquee/active states. Loot n' Goblin's loot is **green emeralds** (faceted low-poly gems), so all loot is emeralds.
 - Background: a dark plank wall (CSS `repeating-linear-gradient` boards, subtle) with a soft warm torch glow at
   the top (radial gradient). Panels look like wooden boards with nail dots, not rounded glossy cards.
 - The **logo** (`assets/logo.png`, 256×144 pixel art) is shown with `image-rendering: pixelated`, framed as a
@@ -69,7 +73,7 @@ Single dark theme on purpose (set `color-scheme: dark`, explicit `body` backgrou
 
 ## Routes (the "pages")
 Header (sticky wooden sign): small logo + "Elmgrove Games", nav: Treehouse · Arcade · Jukebox · Crew · Notice board.
-On phones the nav wraps or scrolls horizontally inside its own strip. Right side: **loot counter** (sack icon + "3/8")
+On phones the nav wraps or scrolls horizontally inside its own strip. Right side: **loot counter** (emerald icon + "3/8")
 and a **sound toggle** (off by default).
 
 1. `#home` (default) **The Treehouse**
@@ -110,10 +114,10 @@ and a **sound toggle** (off by default).
 Unknown hash → home. Changing route scrolls to top, updates `document.title`, moves focus to the main heading.
 
 ## The loot hunt (the first mini-game)
-Eight small gold **loot sacks** are hidden around the site: one on each of the six routes types (home, arcade,
+Eight small **emeralds** (low-poly gem, CSS/SVG, gem green with a lighter facet) are hidden around the site: one on each of the six routes types (home, arcade,
 jukebox, crew, notices, and one on any game page) plus two more in odd places (e.g. behind the logo in the hero,
 at the end of the timeline). Small (about 18 px), a little transparent until hovered, but findable. They are real
-buttons with `aria-label="Loot sack"`. Clicking one: a coin "pop" animation, it disappears, the header counter goes
+buttons with `aria-label="Emerald"`. Clicking one: a coin "pop" animation, it disappears, the header counter goes
 up, a short toast ("+1 loot. 5 to go."). All eight: toast "You've looted the whole treehouse. A true goblin." and
 the counter turns leaf green. Found sacks stay found (localStorage, try/catch). A "reset loot" text button sits in the footer.
 
@@ -123,8 +127,11 @@ plays quietly on route changes. It must never delay navigation; the old site's 1
 Jukebox works whatever the toggle says, because pressing play is the choice.
 
 ## Data files
-- `games.json` (from the inventory, read-only): slug, title, tagline, description, published, platforms, engine,
-  jam, browser_playable, downloadable, price, url, cover, shots.
+- `games.json` (inventory + manager, read-only): slug, title, url, tagline, description, year, status, platforms,
+  genre, tags, made_with, jam {name,url}, authors, browser_playable, downloadable, price, itch_id, cover,
+  **screen** (the image to put on a cabinet screen; some covers are 32 px, so use `image-rendering: pixelated` on
+  small ones), shots, and `clip` (Loot n' Goblin only: a short looping mp4, muted autoplay on its game page).
+  Empty description or tagline: show `[description?]` in muted text.
 - `content.json` (builder writes, manager reviews):
   `featured` (4 slugs, order), `quotes` {slug: text}, `trailers` {slug: url}, `crew` [{name, role}],
   `notices` [{date, title, body, example: true}].

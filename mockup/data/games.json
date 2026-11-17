@@ -1,0 +1,346 @@
+[
+  {
+    "slug": "lootngoblin",
+    "title": "Loot n' Goblin",
+    "url": "https://elmgrove.itch.io/lootngoblin",
+    "tagline": "Experience life as a goblin.",
+    "description": "A first-person game with action, stealth and platforming elements. The page says that aside from open-source textures, all assets were made by the team for the BIGMODE 2023 game jam.",
+    "published": null,
+    "updated": null,
+    "status": "Released",
+    "platforms": [
+      "Windows"
+    ],
+    "genre": [
+      "Action"
+    ],
+    "tags": [
+      "3D",
+      "Atmospheric",
+      "Dungeon Crawler",
+      "First-Person",
+      "goblin",
+      "Indie",
+      "Loot",
+      "Retro",
+      "Stealth"
+    ],
+    "made_with": null,
+    "jam": {
+      "name": "Bigmode Game Jam 2023",
+      "url": "https://itch.io/jam/bigmode-2023"
+    },
+    "authors": [
+      "Elmgrove"
+    ],
+    "browser_playable": false,
+    "downloadable": true,
+    "price": "Free",
+    "itch_id": 2425682,
+    "cover": "assets/games/lootngoblin/cover.png",
+    "shots": [
+      "assets/games/lootngoblin/shot1.png",
+      "assets/games/lootngoblin/shot2.png",
+      "assets/games/lootngoblin/shot3.png",
+      "assets/games/lootngoblin/shot4.png"
+    ],
+    "year": 2023,
+    "screen": "assets/games/lootngoblin/cover.png",
+    "clip": "assets/games/lootngoblin/clip.mp4"
+  },
+  {
+    "slug": "tunnels-of-set",
+    "title": "Tunnels of Set",
+    "url": "https://elmgrove.itch.io/tunnels-of-set",
+    "tagline": "Gamejam submission for Enigma Jam 2023",
+    "description": "A top-down action game submitted to the Enigma Game Jam 2023. The page notes the default build only supports a gamepad and points to a separate keyboard-and-mouse version; the controls are the left stick or WASD to move and A or Space to attack. It mentions a secret boss to find.",
+    "published": null,
+    "updated": null,
+    "status": "In development",
+    "platforms": [
+      "Windows"
+    ],
+    "genre": [
+      "Action"
+    ],
+    "tags": [
+      "3D",
+      "Creepy",
+      "Dark",
+      "Singleplayer",
+      "Top-Down"
+    ],
+    "made_with": null,
+    "jam": {
+      "name": "The Enigma Game Jam",
+      "url": "https://itch.io/jam/the-enigma-game-jam"
+    },
+    "authors": [
+      "Elmgrove"
+    ],
+    "browser_playable": false,
+    "downloadable": true,
+    "price": "Free",
+    "itch_id": 1934206,
+    "cover": "assets/games/tunnels-of-set/cover.png",
+    "shots": [
+      "assets/games/tunnels-of-set/old-site.png",
+      "assets/games/tunnels-of-set/shot1.png",
+      "assets/games/tunnels-of-set/shot2.png",
+      "assets/games/tunnels-of-set/shot3.png",
+      "assets/games/tunnels-of-set/shot4.png"
+    ],
+    "year": 2023,
+    "screen": "assets/games/tunnels-of-set/cover.png"
+  },
+  {
+    "slug": "befriend-all-humans",
+    "title": "Befriend All Humans",
+    "url": "https://elmgrove.itch.io/befriend-all-humans",
+    "tagline": "Inflict mass friendship!",
+    "description": "A shooter in which you zap humans with an Influencer ray gun to make them your friends, then lead them back to the green party zone to fill your Party Meter. Party Points buy upgrades, and dogs and cars can knock your friends out. The page lists Elmgrove and cobb as authors.",
+    "published": null,
+    "updated": null,
+    "status": "Released",
+    "platforms": [
+      "Windows",
+      "Linux"
+    ],
+    "genre": [
+      "Shooter"
+    ],
+    "tags": [
+      "Aliens",
+      "Singleplayer"
+    ],
+    "made_with": null,
+    "jam": {
+      "name": "Seattle Indies Slow Jam 2023",
+      "url": "https://itch.io/jam/seattle-indies-slow-jam-2023"
+    },
+    "authors": [
+      "Elmgrove",
+      "cobb"
+    ],
+    "browser_playable": false,
+    "downloadable": true,
+    "price": "Free",
+    "itch_id": 2376701,
+    "cover": "assets/games/befriend-all-humans/cover.png",
+    "shots": [
+      "assets/games/befriend-all-humans/shot1.png"
+    ],
+    "year": 2023,
+    "screen": "assets/games/befriend-all-humans/cover.png"
+  },
+  {
+    "slug": "tomb-of-the-sun-god",
+    "title": "Tomb of the Sun God",
+    "url": "https://elmgrove.itch.io/tomb-of-the-sun-god",
+    "tagline": "Tile-based action/adventure game.",
+    "description": "A tile-based action-adventure game with an 8-bit look, made with Unity and playable in the browser. The page suggests full-screen play and gives tips for escaping an enemy chase, and it credits the music to azureflux.",
+    "published": null,
+    "updated": null,
+    "status": "Released",
+    "platforms": [
+      "HTML5"
+    ],
+    "genre": [
+      "Adventure",
+      "Action"
+    ],
+    "tags": [
+      "8-Bit",
+      "Action-Adventure",
+      "Arcade",
+      "chiptune",
+      "Dungeon Crawler",
+      "Minimalist",
+      "Pixel Art",
+      "Top Down Adventure"
+    ],
+    "made_with": "Unity",
+    "jam": {
+      "name": "Minimalistic Jam 3",
+      "url": "https://itch.io/jam/minimalistic-jam-3"
+    },
+    "authors": [
+      "Elmgrove"
+    ],
+    "browser_playable": true,
+    "downloadable": false,
+    "price": "Free",
+    "itch_id": 279919,
+    "cover": "assets/games/tomb-of-the-sun-god/cover.png",
+    "shots": [
+      "assets/games/tomb-of-the-sun-god/old-site.gif",
+      "assets/games/tomb-of-the-sun-god/shot1.png",
+      "assets/games/tomb-of-the-sun-god/shot2.png",
+      "assets/games/tomb-of-the-sun-god/shot3.png",
+      "assets/games/tomb-of-the-sun-god/shot4.png"
+    ],
+    "year": 2018,
+    "screen": "assets/games/tomb-of-the-sun-god/shot1.png"
+  },
+  {
+    "slug": "taskforce-zeta",
+    "title": "Taskforce Zeta",
+    "url": "https://elmgrove.itch.io/taskforce-zeta",
+    "tagline": "Fly through cyberspace and destroy bugs to complete the game on time!",
+    "description": "A 2D pixel-art shooter set in cyberspace, where you fly around and destroy bugs to finish the game on time. The controls are WASD to move, the arrow keys to shoot and Shift or Space to rotate. The page says there is no restart, so you refresh if you die, and that the music is by Azureflux.",
+    "published": null,
+    "updated": null,
+    "status": "Released",
+    "platforms": [
+      "HTML5"
+    ],
+    "genre": [
+      "Action",
+      "Shooter"
+    ],
+    "tags": [
+      "2D",
+      "Futuristic",
+      "Pixel Art",
+      "Sci-fi",
+      "Singleplayer",
+      "Space"
+    ],
+    "made_with": "Unity",
+    "jam": {
+      "name": "Blackthornprod GAME JAM # 1",
+      "url": "https://itch.io/jam/blackthornprod-game-jam-1"
+    },
+    "authors": [
+      "Elmgrove"
+    ],
+    "browser_playable": true,
+    "downloadable": false,
+    "price": "Free",
+    "itch_id": 318603,
+    "cover": "assets/games/taskforce-zeta/cover.png",
+    "shots": [
+      "assets/games/taskforce-zeta/old-site.gif",
+      "assets/games/taskforce-zeta/shot1.png"
+    ],
+    "year": 2018,
+    "screen": "assets/games/taskforce-zeta/old-site.gif"
+  },
+  {
+    "slug": "samurai-blues",
+    "title": "Samurai Blues",
+    "url": "https://elmgrove.itch.io/samurai-blues",
+    "tagline": "WIP submission for the RPG Maker Themed Game Jam [Updated 6-14-26]",
+    "description": "An RPG Maker work-in-progress from the RPG Maker Themed Game Jam #15, with pixel art and a samurai theme. The page says it works with controller, keyboard and mouse. It also discloses AI-assisted graphics and sounds, and says those are temporary assets for a planned no-AI final release.",
+    "published": null,
+    "updated": null,
+    "status": "Released",
+    "platforms": [
+      "HTML5",
+      "Windows"
+    ],
+    "genre": [
+      "Role Playing",
+      "Adventure"
+    ],
+    "tags": [
+      "Pixel Art",
+      "RPG Maker",
+      "samurai",
+      "Singleplayer"
+    ],
+    "made_with": "RPG Maker",
+    "jam": {
+      "name": "RPG Maker Themed Game Jam #15: Champions of the Elements",
+      "url": "https://itch.io/jam/rpg-maker-themed-game-jam-15"
+    },
+    "authors": [
+      "Elmgrove"
+    ],
+    "browser_playable": true,
+    "downloadable": true,
+    "price": "Free",
+    "itch_id": 4590574,
+    "cover": "assets/games/samurai-blues/cover.png",
+    "shots": [
+      "assets/games/samurai-blues/shot1.png"
+    ],
+    "year": 2026,
+    "screen": "assets/games/samurai-blues/cover.png"
+  },
+  {
+    "slug": "spirit-manor",
+    "title": "Spirit Manor",
+    "url": "https://elmgrove.itch.io/spirit-manor",
+    "tagline": null,
+    "description": "A Unity game that is playable in the browser and was entered in the Seattle Indies Slow Jam 2022. The page has no description text, only the title, the jam entry and one screenshot.",
+    "published": null,
+    "updated": null,
+    "status": "Released",
+    "platforms": [
+      "HTML5"
+    ],
+    "genre": [],
+    "tags": [],
+    "made_with": "Unity",
+    "jam": {
+      "name": "Seattle Indies Slow Jam 2022",
+      "url": "https://itch.io/jam/seattle-indies-slow-jam-2022"
+    },
+    "authors": [
+      "Elmgrove"
+    ],
+    "browser_playable": true,
+    "downloadable": false,
+    "price": "Free",
+    "itch_id": 1800751,
+    "cover": "assets/games/spirit-manor/cover.png",
+    "shots": [
+      "assets/games/spirit-manor/shot1.png"
+    ],
+    "year": 2022,
+    "screen": "assets/games/spirit-manor/shot1.png"
+  },
+  {
+    "slug": "shoujo-showdown",
+    "title": "Shoujo Showdown",
+    "url": "https://elmgrove.itch.io/shoujo-showdown",
+    "tagline": "True love turns the world on it's head!",
+    "description": "A top-down shooter in which true love turns the world on its head. The controls are WASD to move, the mouse to aim and shoot, Z to pick up and drop PPDs, R to reload and Space to advance dialogue. The page calls it the team's first game, made for the Yuri Game Jam, and credits its sound clips to soundbible.com.",
+    "published": null,
+    "updated": null,
+    "status": "Prototype",
+    "platforms": [
+      "Flash"
+    ],
+    "genre": [
+      "Shooter"
+    ],
+    "tags": [
+      "Anime",
+      "pure-love-simulator",
+      "Top down shooter",
+      "Yuri"
+    ],
+    "made_with": null,
+    "jam": {
+      "name": "Yuri Game Jam",
+      "url": "https://itch.io/jam/yuri-game-jam"
+    },
+    "authors": [
+      "Elmgrove"
+    ],
+    "browser_playable": true,
+    "downloadable": false,
+    "price": "Free",
+    "itch_id": 42506,
+    "cover": "assets/games/shoujo-showdown/cover.png",
+    "shots": [
+      "assets/games/shoujo-showdown/shot1.png",
+      "assets/games/shoujo-showdown/shot2.png",
+      "assets/games/shoujo-showdown/shot3.png"
+    ],
+    "year": 2015,
+    "screen": "assets/games/shoujo-showdown/shot1.png"
+  }
+]
