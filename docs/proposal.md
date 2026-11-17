@@ -1,6 +1,6 @@
 # Proposal: the new elmgrove.games
 
-Written 17 Nov 2026. Status: **phase 1 waiting on Cosmo's Namecheap steps**. Live checklist: `PROGRESS.md`.
+Written 17 Nov 2026, updated the same evening. Status: **phase 1 waiting on Cosmo's Namecheap steps; mock-up built for the team**. Live checklist: `PROGRESS.md`.
 
 ## What the team asked for
 - Get off Namecheap hosting onto something easier to update that doesn't expire (GitHub Pages), keep the
@@ -20,7 +20,19 @@ Written 17 Nov 2026. Status: **phase 1 waiting on Cosmo's Namecheap steps**. Liv
   music tries to autoplay; no mobile layout; no page descriptions or social preview images; small
   pictures; typos ("rougelike", "Shoujou"); the TLS certificate doesn't match the domain.
 
+## Games on the new site (Cosmo, 17 Nov: only the Elmgrove itch)
+Eight games on https://elmgrove.itch.io. Featured: a mix of most successful and most recent:
+**Loot n' Goblin** (2023, Bigmode jam: Fun #47 and Originality #49 of 484), **Tunnels of Set** (2023, #20 of 47),
+**Befriend All Humans** (2023, with cobb), **Tomb of the Sun God** (2018, plays in the browser).
+Back room: Samurai Blues (2026, work in progress), Spirit Manor (2022), Taskforce Zeta (2018), Shoujo Showdown (2015).
+Jam results show plainly on each game page; the site shows off the games, not the jams. The Odd Boss collaborations and
+Cosmo's own itch (Kami Mart) stay off unless the questionnaire says otherwise.
+
 ## Direction (to be confirmed by the questionnaire)
+**Now (Cosmo, 17 Nov): "a treehouse inside the tree of the logo, like a bunker, with arcade machines that have our
+games on them".** It's goblin-y because Loot n' Goblin is the main success. The logo and the Loot n' Goblin cover share a
+purple-to-green sky, and the loot is green emeralds. The mock-up (`mockup/`, spec `docs/specs/mockup.md`) shows this.
+The earlier idea follows, kept as option b) in the questionnaire:
 **"The Elmgrove orchard, and what lives under it."** The top of the site keeps the orchard: the elm tree,
 pixel font, warm and friendly. Going into the games takes you **underground** into a torchlit goblin den.
 That's where the next game's mood comes in: soot `#12100e`, worn stone `#3b3229`, parchment `#efe5d2`,
@@ -54,8 +66,9 @@ surveys by Haiku.
 | 0 | Capture old site, make repo, Pages + domain set | manager | ✅ 17 Nov |
 | 1 | **Cut-over**: Cosmo does `docs/migration/dns-and-email.md` steps 0–4; Claude checks DNS, enforces HTTPS, Cosmo tests mail | Cosmo + manager | Site on HTTPS, every alias tested, cPanel backup saved privately |
 | 1b | *(optional)* Sending mail as `@elmgrove.games` (Zoho free / Private Email) | Cosmo + manager | Only if the team wants to reply from the domain |
-| 2 | **Content inventory**: every Elmgrove game's itch page (cover, screenshots, description, jam, ratings, credits), YouTube links, repo notes | Haiku survey → manager checks | `docs/content/games-inventory.md` |
-| 3 | **Full questionnaire** (20+ multiple choice) after Cosmo adds more context; team answers together | manager drafts, team answers | `docs/questionnaire.md` answered |
+| 2 | **Content inventory**: every Elmgrove game's itch page (cover, screenshots, description, jam, ratings, credits), YouTube links, repo notes | Haiku survey → manager checks | ✅ mostly, 17 Nov: `mockup/data/games.json` (8 games, art, years). Still to do: YouTube links, team credits, soundtrack files |
+| 2.5 | **Test mock-up** of the whole site for the team to click before answering (treehouse, arcade cabinets, game pages, jukebox, emerald hunt, crew, notice board) | Haiku inventory → Sonnet build → manager review | Published as a private artifact |
+| 3 | **Questionnaire**: draft v1 has 32 questions (`docs/questionnaire.md`); final after Cosmo adds context; team answers together | manager drafts, team answers | `docs/questionnaire.md` answered |
 | 4 | **Design spec** + 2–3 homepage mock-ups for a team vote | strongest model available (`design-handoff` skill) | `docs/specs/redesign.md` approved |
 | 5 | **Build**, one piece at a time from the spec: B1 Eleventy skeleton + theme tokens + layout; B2 game page template + all game files; B3 home/about/team; B4 contact + press page; B5 fun layer (sound toggle, hovers, easter egg); B6 accessibility, mobile, SEO, link check | Sonnet workers, one at a time, manager reviews each | Each piece previewed and reviewed |
 | 6 | **Launch**: swap `site/` for the build output, keep `games.html`/`contact.html` working (redirect pages), Lighthouse + link check, announce to team | manager | Live, old URLs still work |
