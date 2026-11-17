@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="resources/images/elmgrove.png"/>
+    <title>Welcome to the Elmgrove orchard!</title>
+    <!--<audio src="resources/sounds/Gobblin1.mp3" autoplay loop></audio>-->
+    <script>
+        function delay (URL) {
+            setTimeout( function() { window.location = URL }, 1500 );
+        }
+    </script>
+</head>
+<body>
+    <h1>Elmgrove Games!</h1>
+    <p>We are a group of indie game devs out of Seattle, WA</p>
+    <img id="elmtree" width="100%" src="resources/images/elmgrove.png"/>
+    <br>
+    
+
+    <div class="bottom-container">
+        <a href="javascript:delay('games.html')" onclick="snd.play()">Games</a>
+        <br>
+        <a href="javascript:delay('contact.html')" onclick="snd.play()">Contact</a>
+        <br>
+        <a href="javascript:delay('https://elmgrove.itch.io')" onclick="snd.play()">Itch</a>
+      
+        <p class="copyright">©Kybrastein LLC</p>
+    </div>
+
+<script>
+    var snd = new Audio("resources/sounds/portal song.wav"); 
+    var mus = new Audio("resources/sounds/Gobblin1.mp3");
+    mus.play();
+    document.getElementById('elmtree').onclick = function(){
+        
+        if(mus.paused){
+            mus.play();
+        } else {
+            mus.pause();
+        }
+    }
+</script>
+</body>
+</html>

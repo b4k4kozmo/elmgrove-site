@@ -1,0 +1,11 @@
+# Never commit private material: this repo is PUBLIC.
+backups/
+*.tar.gz
+*.zip
+*.sql
+*.env
+.env*
+cpanel*/
+mail/
+node_modules/
+.DS_Store

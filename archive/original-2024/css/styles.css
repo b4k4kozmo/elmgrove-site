@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Gold Box 8x16 Monospaced';
+    src: url('../resources/fonts/GoldBox.ttf');
+}
+
+h1 {
+    font-family:  'Gold Box 8x16 Monospaced';
+    color: #c25cb1;
+    font-size: 48px;
+}
+
+h2 {
+    font-family:  'Gold Box 8x16 Monospaced';
+    color: #400968;
+    font-size: 40px;
+}
+
+p {
+    font-family:  'Gold Box 8x16 Monospaced';
+    color: #1a022b;
+    font-size: 24px;
+}
+body {
+    text-align: center;
+    background-color:  #86ba86;
+    margin: 0;
+    padding: 0;
+}
+a {
+    font-family: 'Gold Box 8x16 Monospaced';
+}
+
+hr {
+    color:#c25cb1
+}
+
+.copyright {
+    margin-top: 20px;
+    color: white;
+  }
+  
+.bottom-container {
+    padding-top: 16px;
+    padding-bottom: 48px;
+    background-image: linear-gradient( #c25cb1, #86ba86);
+  }
+
+.game-container {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
