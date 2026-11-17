@@ -1,6 +1,6 @@
 # Handoff: elmgrove-site
 
-**Last updated:** 2026-11-17 evening, session 1 continuing (Opus 5.5 managing).
+**Last updated:** 2026-11-17 evening, end of session 1 (Opus 5.5 managing). Nothing running; repo clean and pushed.
 
 ## How this job is run
 Cosmo's words: move elmgrove.games off Namecheap hosting to GitHub Pages, switch mail to forwarding aliases
@@ -14,25 +14,37 @@ surveys to Haiku, one worker at a time. Save progress often. Plan: `docs/proposa
 - Repo public on GitHub, Pages via Actions, custom domain `elmgrove.games` set.
 - Docs: proposal (phases 0-7), DNS + email walkthrough, light questionnaire (12 questions).
 
-## In progress: the test mock-up (phase 2.5, added 17 Nov)
-Cosmo asked for a clickable mock-up *before* the questionnaire: treehouse-bunker-inside-the-logo theme, arcade
-cabinets, Loot n' Goblin mood, Elmgrove-itch games only, jukebox, loot-hunt mini-game. Spec: `docs/specs/mockup.md`.
-Order: (1) Haiku inventory of the 8 itch games -> `mockup/data/games.json` + `mockup/assets/games/` and a music search;
-(2) Sonnet builds `mockup/` from the spec; (3) manager reviews (screenshots via headless Firefox) and publishes it as a
-private artifact; (4) themed proposal page with the full questionnaire, published as an artifact.
-Uncommitted files under `mockup/` are a worker's unreviewed output: review before committing.
+## Links (all private Claude artifacts; Cosmo shares them from each page's Share menu)
+- Phone steps for the DNS switch: https://claude.ai/artifact/C1hhSoMyfnbfSnyYgnhibF (source `docs/migration/switch-steps.html`)
+- **Mock-up "The Treehouse"**: https://claude.ai/artifact/9zaFaibcLQcvm4G4Yzvzn4 (source `mockup/`, spec `docs/specs/mockup.md`)
+- **Themed proposal + questionnaire**: https://claude.ai/artifact/NfrwjRmqtjet6yXm7XMtne (built by
+  `python3 tools/build_proposal_page.py <mockup-url>` from `docs/proposal-page/template.html` + `docs/questionnaire.md`
+  + `mockup/data/games.json`; edit those, rebuild, republish the same file path to keep the URL)
+To republish from a new session, pass the URL as `url` to the Artifact tool (read it first). The mock-up needs every
+file under `mockup/{css,js,data,assets}` in `files` (published path = path inside `mockup/`).
+
+## The mock-up (phase 2.5, done 17 Nov)
+Built by a Sonnet worker from the spec, reviewed by the manager (all of index.html, site.js, site.css, data read;
+screenshots of every route at 1280 and 390 wide looked at; fixes: game descriptions rewritten in our voice, stray
+itch status tags removed, Godot placeholder removed, Shoujo engine = Stencyl, price tag alignment).
+Not tested (no real clicks/audio headless): emerald pickups, filters, lightbox, Copy button, jukebox audio, sound
+toggle, Loot n' Goblin clip autoplay. Ask Cosmo to tap through on his phone.
+Open content gaps shown as placeholders: Loot n' Goblin / Tunnels / Befriend engine `[engine?]`, Cosmo's and Robert's
+roles, Spirit Manor description, soundtrack files for the jukebox (locked slots), crew portraits.
 
 ## Waiting on Cosmo
-1. Phone steps page: https://claude.ai/artifact/C1hhSoMyfnbfSnyYgnhibF (mail is NOT kept; no cPanel backup needed).
+1. The DNS switch via the phone steps page (mail is NOT kept; no cPanel backup needed); lock down cPanel a week later.
 2. GitHub domain verification (step 1c), nameservers to BasicDNS, host records, email forwarding (steps 2-4).
 3. Forward-to addresses for each alias: he types them into Namecheap himself, never into this repo.
 4. Answers to the open questions in `PROGRESS.md`.
-5. More context for the full questionnaire (phase 3).
+5. More context, then the team answers the questionnaire on the proposal page (answers come back as pasted text).
+6. Soundtrack files (Loot n' Goblin etc.) and engine/role facts to fill the placeholders.
 
 ## Next session, first thing
 Run the checks in walkthrough step 5. If NS is `registrar-servers.com` and A records are 185.199.x:
 enforce HTTPS (`gh api -X PUT repos/b4k4kozmo/elmgrove-site/pages -F https_enforced=true`, retry if the
-certificate isn't issued yet), then ask Cosmo to test each alias. Then phase 2 (Haiku content inventory).
+certificate isn't issued yet), then ask Cosmo to test each alias. Then: fold Cosmo's extra context into `docs/questionnaire.md`, rebuild and republish the proposal page; after the
+team answers, phase 4 design spec (`design-handoff` skill) from the answers + mock-up.
 
 ## Verified / not verified
 - Verified: the capture is byte-checked (`SHA256SUMS`); the old live site had only `index`, `games`, `contact`

@@ -17,11 +17,13 @@ Tick items as they land; add the date. Phases are explained in `docs/proposal.md
 - [ ] Step 6: every alias tested from an outside address (Cosmo)
 - [ ] A quiet week, then the hosting's auto-renew off. Do not cancel until Cosmo says so
 
-## Phase 2.5: test mock-up (17 Nov, in progress). Spec `docs/specs/mockup.md`
-- [ ] Haiku: itch inventory (8 games) + music search
-- [ ] Sonnet: build `mockup/`
-- [ ] Manager: review, screenshots, publish as private artifact
-- [ ] Themed proposal page + full questionnaire (20+ multiple choice), published as artifact
+## Phase 2.5: test mock-up (17 Nov, built). Spec `docs/specs/mockup.md`
+- [x] Haiku: itch inventory (8 games, 31 images) + music search (only Gobblin' found; no Loot n' Goblin audio on the PC)
+- [x] Sonnet: build `mockup/` (6 routes, jukebox, emerald hunt)
+- [x] Manager: review, fixes, published https://claude.ai/artifact/9zaFaibcLQcvm4G4Yzvzn4
+- [x] Themed proposal page + questionnaire draft v1 (32 questions) https://claude.ai/artifact/NfrwjRmqtjet6yXm7XMtne
+- [ ] Cosmo taps through the mock-up on a phone (clicks and audio untested)
+- [ ] Cosmo's extra context -> questionnaire final -> team answers
 
 ## Open questions for Cosmo
 - Keep `contact@` as an alias too? The old site printed it. Recommended: yes, forwarding to the same people as `team@`.

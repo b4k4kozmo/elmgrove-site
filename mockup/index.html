@@ -1,0 +1,89 @@
+<meta charset="utf-8">
+<title>Elmgrove Games</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-gem" viewBox="0 0 24 24">
+    <polygon points="7,3 17,3 22,9 12,22 2,9" fill="#1d9c42"/>
+    <polygon points="7,3 17,3 15,9 9,9" fill="#9af5b2"/>
+    <polygon points="2,9 7,3 9,9" fill="#5fe283"/>
+    <polygon points="22,9 17,3 15,9" fill="#37c25f"/>
+    <polygon points="2,9 9,9 12,22" fill="#2fd25a"/>
+    <polygon points="22,9 15,9 12,22" fill="#15803a"/>
+    <polygon points="9,9 15,9 12,22" fill="#25b84f"/>
+    <polygon points="7,3 17,3 22,9 12,22 2,9" fill="none" stroke="#0b3a1a" stroke-width="1" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="7,4 20,12 7,20" fill="currentColor"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" fill="currentColor"/><rect x="14" y="4" width="4" height="16" fill="currentColor"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><rect x="4.5" y="5" width="2.5" height="14" fill="currentColor"/><polygon points="19,5 19,19 8,12" fill="currentColor"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><rect x="17" y="5" width="2.5" height="14" fill="currentColor"/><polygon points="5,5 5,19 16,12" fill="currentColor"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" fill="currentColor"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2.4"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 16V4h12" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-snd-on" viewBox="0 0 24 24"><polygon points="3,9 7,9 12,5 12,19 7,15 3,15" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-snd-off" viewBox="0 0 24 24"><polygon points="3,9 7,9 12,5 12,19 7,15 3,15" fill="currentColor"/><path d="M16 9l6 6M22 9l-6 6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="2.6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2.6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2.6"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+</svg>
+
+<div id="elm" class="elm">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="sign" id="top">
+    <div class="sign-row">
+      <a class="brand" href="#home" aria-label="Elmgrove Games, home">
+        <img src="assets/logo.png" alt="" width="64" height="36" class="pix">
+        <span>Elmgrove Games</span>
+      </a>
+      <div class="tools">
+        <button type="button" id="loot" class="loot" aria-label="Emerald loot found">
+          <svg class="ic"><use href="#i-gem"/></svg><span id="loot-n">0/8</span>
+        </button>
+        <button type="button" id="snd" class="icon-btn" aria-pressed="false" aria-label="Sound effects">
+          <svg class="ic on"><use href="#i-snd-on"/></svg><svg class="ic off"><use href="#i-snd-off"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Main">
+      <a href="#home" data-r="home">Treehouse</a>
+      <a href="#arcade" data-r="arcade">Arcade</a>
+      <a href="#jukebox" data-r="jukebox">Jukebox</a>
+      <a href="#crew" data-r="crew">Crew</a>
+      <a href="#notices" data-r="notices">Notice board</a>
+    </nav>
+  </header>
+
+  <main id="main" class="main"><p class="loading">Lighting the lanterns...</p></main>
+
+  <footer class="foot">
+    <p>Elmgrove Games, Seattle WA. A mock-up for the team to click through. Anything marked <b>Example</b> is made up.</p>
+    <p>Games are hosted on <a href="https://elmgrove.itch.io/" target="_blank" rel="noopener">itch.io</a>.
+      <button type="button" id="reset-loot" class="linkbtn">Reset loot</button></p>
+  </footer>
+</div>
+
+<div class="np" id="np" hidden>
+  <button type="button" id="np-play" class="np-btn" aria-label="Play">
+    <svg class="ic"><use href="#i-play"/></svg>
+  </button>
+  <a href="#jukebox" class="np-title" id="np-title">Nothing playing</a>
+  <span class="np-time" id="np-time">0:00</span>
+  <span class="np-bar" aria-hidden="true"><i id="np-fill"></i></span>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Screenshot viewer" hidden>
+  <button type="button" class="lb-x" id="lb-x" aria-label="Close"><svg class="ic"><use href="#i-close"/></svg></button>
+  <button type="button" class="lb-n lb-p" id="lb-p" aria-label="Previous screenshot"><svg class="ic"><use href="#i-left"/></svg></button>
+  <figure class="lb-fig"><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button type="button" class="lb-n lb-nx" id="lb-nx" aria-label="Next screenshot"><svg class="ic"><use href="#i-right"/></svg></button>
+</div>
+
+<audio id="player" preload="none"></audio>
+<script src="js/site.js"></script>

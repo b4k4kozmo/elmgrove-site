@@ -1,0 +1,48 @@
+{
+  "featured": ["lootngoblin", "tunnels-of-set", "befriend-all-humans", "tomb-of-the-sun-god"],
+  "quotes": {
+    "lootngoblin": "Really makes you FEEL like a goblin.",
+    "tunnels-of-set": "Would definitely love to see more of this.",
+    "befriend-all-humans": "The voxel art was very pretty.",
+    "spirit-manor": "The art is really fantastic."
+  },
+  "quote_credit": "itch.io comment",
+  "trailers": {
+    "shoujo-showdown": "https://www.youtube.com/watch?v=6wlggqHfBwc",
+    "befriend-all-humans": "https://www.youtube.com/watch?v=Ev52mV5ABKM"
+  },
+  "credits": {
+    "befriend-all-humans": "Elmgrove, with cobb (Odd Boss Games)"
+  },
+  "tags": {
+    "samurai-blues": "Work in progress"
+  },
+  "crew": [
+    { "name": "Cosmo", "role": "[role?]" },
+    { "name": "Kyle", "role": "Programming" },
+    { "name": "Krasiv", "role": "Game design" },
+    { "name": "Robert", "role": "[role?]" }
+  ],
+  "contact": "team@elmgrove.games",
+  "itch": "https://elmgrove.itch.io/",
+  "notices": [
+    {
+      "date": "2026-11-16",
+      "title": "The jukebox is open",
+      "body": "Pull the lever and the old Elmgrove theme starts up. The soundtrack slots are locked for now, but the goblins are working on the key. Keep your ears out.",
+      "example": true
+    },
+    {
+      "date": "2026-11-12",
+      "title": "Digging out our old jam games",
+      "body": "We went down to the cellar with a lantern and found a pile of old jam games. Dusted them off, gave them a shelf in the back room. Some of them are very small and very proud.",
+      "example": true
+    },
+    {
+      "date": "2026-11-05",
+      "title": "A peek at the treehouse",
+      "body": "New planks, new cabinets, and a draft that smells faintly of emeralds. Sit down, stay a while, and mind the roots.",
+      "example": true
+    }
+  ]
+}
