@@ -1,0 +1,324 @@
+<meta charset="utf-8">
+<title>The New Elmgrove.games</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: one long scroll down the trunk of the elm: sky at the top, wooden rooms below, a board of questions at the end.
+   Single dark theme on purpose (the treehouse at night). */
+@font-face{font-family:"GoldBox";src:url("assets/fonts/GoldBox.ttf") format("truetype");font-display:swap}
+:root{
+  --night:#170d22; --dusk:#400968; --orchid:#c25cb1; --leaf:#8fd67e; --gem:#2fd25a;
+  --bark:#4a2f1c; --plank:#6b4529; --plank-hi:#86593a; --loot:#e3a443; --parch:#efe5d2; --muted:#bfae98; --soot:#0f0b09;
+  --sky:linear-gradient(180deg,#7a3fc0 0%,#5b45b0 35%,#2f8f6a 75%,#1fd14a 100%);
+  --f-display:"GoldBox","Pixelify Sans",ui-monospace,monospace;
+  --f-pixel:"Pixelify Sans",ui-monospace,monospace;
+  --f-body:"Atkinson Hyperlegible",system-ui,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--night);color:var(--parch);font:17px/1.6 var(--f-body);
+  background-image:
+    repeating-linear-gradient(90deg,rgba(0,0,0,.18) 0 2px,transparent 2px 120px),
+    repeating-linear-gradient(180deg,transparent 0 38px,rgba(0,0,0,.22) 38px 40px),
+    linear-gradient(180deg,#22142e,#170d22 40%,#140b10);}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.1;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);color:var(--leaf)}
+h3{font-size:1.25rem;color:var(--loot)}
+p{margin:0}
+a{color:var(--leaf)}
+a:focus-visible,button:focus-visible,input:focus-visible+span{outline:2px solid var(--loot);outline-offset:3px}
+.eyebrow{font-family:var(--f-pixel);text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:var(--orchid)}
+.lede{font-size:1.1rem;color:var(--muted);max-width:62ch}
+
+/* hero: the sky outside the treehouse window */
+.hero{background:var(--sky);border-bottom:10px solid var(--bark);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:center;padding-block:56px 48px}
+.hero h1{font-size:clamp(2.1rem,5vw,3.5rem);overflow-wrap:anywhere;color:#fff;text-shadow:3px 3px 0 var(--dusk)}
+.hero .lede{color:#f5ecff}
+.hero .eyebrow{color:#fff;opacity:.85}
+.window{background:var(--plank);padding:14px;border:4px solid var(--bark);box-shadow:inset 0 0 0 3px var(--plank-hi),0 10px 0 rgba(0,0,0,.35);position:relative}
+.window img{display:block;width:100%;image-rendering:pixelated;border:3px solid var(--soot)}
+.window::after{content:"";position:absolute;inset:14px;background:linear-gradient(90deg,transparent calc(50% - 3px),var(--plank) calc(50% - 3px) calc(50% + 3px),transparent calc(50% + 3px));pointer-events:none}
+.stack{display:grid;gap:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--f-pixel);font-size:.85rem;padding:3px 10px;border:2px solid currentColor;border-radius:2px;background:rgba(0,0,0,.25)}
+.chip.go{color:var(--gem)} .chip.wait{color:var(--loot)} .chip.idea{color:var(--orchid)}
+
+section.room{padding-block:56px}
+.board{background:linear-gradient(180deg,var(--plank-hi),var(--plank));border:3px solid var(--bark);padding:20px;position:relative;
+  box-shadow:0 6px 0 rgba(0,0,0,.35)}
+.board::before,.board::after{content:"";position:absolute;top:8px;width:6px;height:6px;border-radius:50%;background:var(--soot);box-shadow:0 0 0 2px rgba(255,255,255,.12)}
+.board::before{left:8px}.board::after{right:8px}
+.board p,.board li{color:var(--parch)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:18px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:18px}
+.room > .wrap{display:grid;gap:28px}
+ul.plain{margin:0;padding-left:1.1em;display:grid;gap:6px}
+
+/* before / after */
+.ba{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.old{background:#86ba86;color:#1a022b;border:3px solid var(--soot);padding:18px;font-family:var(--f-display);text-align:center;display:grid;gap:10px}
+.old .t{color:#c25cb1;font-size:1.8rem}
+.old .nav{background:linear-gradient(#c25cb1,#86ba86);padding:10px;color:#2a1a8a;text-decoration:underline}
+.old small{font-family:var(--f-body);font-size:.85rem;color:#1a022b}
+
+/* swatches */
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,130px),1fr));gap:12px}
+.sw{border:3px solid var(--bark);background:var(--soot)}
+.sw i{display:block;height:64px}
+.sw span{display:block;padding:6px 8px;font-family:var(--f-pixel);font-size:.8rem;color:var(--muted)}
+
+/* cabinets */
+.cab span{display:block}
+.cab{display:grid;text-decoration:none;color:var(--parch);filter:drop-shadow(0 8px 0 rgba(0,0,0,.4))}
+.cab .marq{background:var(--dusk);border:3px solid var(--soot);border-bottom:0;padding:8px 6px;text-align:center;font-family:var(--f-display);font-size:1rem;color:#fff;
+  text-shadow:0 0 8px var(--orchid),0 0 2px var(--orchid);clip-path:polygon(4% 0,96% 0,100% 100%,0 100%)}
+.cab .body{background:linear-gradient(90deg,#2a0f45,var(--dusk) 12%,var(--dusk) 88%,#2a0f45);border:3px solid var(--soot);padding:12px 14px 0}
+.cab .scr{aspect-ratio:315/250;background:var(--soot);border:6px solid #000;overflow:hidden}
+.cab .scr img{width:100%;height:100%;object-fit:cover;display:block}
+.cab .scr img.px{image-rendering:pixelated}
+.cab .panel{display:flex!important;align-items:center;justify-content:center;gap:12px;padding:12px 0 14px}
+.cab i{display:block;flex:none}
+.cab .stick{width:14px;height:14px;border-radius:50%;background:var(--orchid);box-shadow:0 6px 0 -3px #000}
+.cab .btn{width:12px;height:12px;border-radius:50%;background:var(--gem)}
+.cab .btn+.btn{background:var(--loot)}
+.cab .meta{font-family:var(--f-pixel);font-size:.85rem;color:var(--muted);text-align:center;padding-top:8px}
+.cab:hover .scr img,.cab:focus-visible .scr img{filter:brightness(1.15) saturate(1.1)}
+.shelf{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:14px;border-bottom:12px solid var(--plank);padding-bottom:12px;box-shadow:0 12px 0 var(--bark)}
+.cart{background:#2b2b33;border:3px solid var(--soot);padding:8px 8px 10px;display:grid;gap:6px;border-radius:4px 4px 0 0;color:var(--parch);text-decoration:none}
+.cart img{width:100%;aspect-ratio:4/3;object-fit:cover;image-rendering:pixelated;border:2px solid #000}
+.cart b{font-family:var(--f-pixel);font-weight:500;font-size:.95rem}
+.cart small{color:var(--muted)}
+
+/* features */
+.feat{display:grid;gap:8px}
+.feat .tag{justify-self:start}
+
+/* roadmap */
+.road{display:grid;gap:0;position:relative}
+.step{display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;padding-bottom:18px;position:relative}
+.step::before{content:"";position:absolute;left:27px;top:44px;bottom:0;width:3px;background:var(--plank)}
+.step:last-child::before{display:none}
+.rung{width:56px;height:44px;display:grid;place-items:center;font-family:var(--f-display);font-size:1.1rem;background:var(--plank);border:3px solid var(--bark);color:var(--parch)}
+.step.done .rung{background:var(--gem);color:var(--soot)}
+.step.now .rung{background:var(--loot);color:var(--soot)}
+.step h3{font-size:1.1rem}
+.step p{color:var(--muted)}
+.who{font-family:var(--f-pixel);font-size:.8rem;color:var(--orchid)}
+
+/* questions */
+.qhead{display:flex;flex-wrap:wrap;gap:12px;align-items:end;justify-content:space-between}
+.qgroup{display:grid;gap:14px}
+.qgroup>h3{color:var(--leaf);font-size:1.15rem;padding-top:8px}
+.q{background:var(--parch);color:#2a1c10;padding:16px 16px 14px;border-radius:2px;box-shadow:0 4px 0 rgba(0,0,0,.4);position:relative;display:grid;gap:10px}
+.q::before{content:"";position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;background:var(--orchid);box-shadow:0 2px 0 #000}
+.q:nth-child(odd){transform:rotate(-.35deg)} .q:nth-child(even){transform:rotate(.3deg)}
+.q .qt{font-weight:700}
+.q .n{font-family:var(--f-display);color:var(--dusk);margin-right:6px}
+.opts{display:grid;gap:6px}
+.opt{display:flex;gap:10px;align-items:flex-start;cursor:pointer;line-height:1.4}
+.opt input{margin-top:3px;accent-color:var(--dusk);width:18px;height:18px;flex:none}
+.opt .mock{font-family:var(--f-pixel);font-size:.75rem;color:#fff;background:var(--dusk);padding:0 6px;margin-left:6px;border-radius:2px;white-space:nowrap}
+.q textarea{width:100%;min-height:64px;font:inherit;border:2px solid #b59c78;background:#fffaf0;color:#2a1c10;padding:8px}
+.q.answered{box-shadow:0 4px 0 rgba(0,0,0,.4),inset 6px 0 0 var(--gem)}
+.tally{font-family:var(--f-pixel);color:var(--loot)}
+.out{display:grid;gap:10px}
+.out pre{background:var(--soot);border:3px solid var(--bark);padding:14px;white-space:pre-wrap;font-size:.85rem;max-height:320px;overflow:auto;color:var(--parch)}
+button.act{font-family:var(--f-pixel);font-size:1rem;background:var(--loot);color:var(--soot);border:3px solid var(--soot);padding:8px 16px;cursor:pointer;box-shadow:0 4px 0 #000}
+button.act.ghost{background:transparent;color:var(--muted);border-color:var(--plank)}
+button.act:active{transform:translateY(2px);box-shadow:0 2px 0 #000}
+footer{padding-block:40px 64px;color:var(--muted);font-size:.9rem;border-top:10px solid var(--bark);background:var(--soot)}
+footer .wrap{display:grid;gap:8px}
+.gem{display:inline-block;width:14px;height:14px;background:linear-gradient(135deg,#bff5c9 0 30%,var(--gem) 30% 70%,#14803a 70%);clip-path:polygon(50% 0,100% 40%,50% 100%,0 40%);vertical-align:-1px;margin-right:6px}
+@media (max-width:720px){.hero .wrap{grid-template-columns:1fr;padding-block:36px 32px}.window{max-width:420px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.q{transform:none!important}}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="stack">
+      <p class="eyebrow">Proposal · Elmgrove Games · 17 Nov 2026</p>
+      <h1>The new elmgrove.games</h1>
+      <p class="lede">Off the hosting that keeps expiring and onto GitHub Pages, then rebuilt as the place our games live: a treehouse inside the elm, full of arcade cabinets. Read this, click the mock-up, then answer the questions at the bottom together.</p>
+      <div class="chips">
+        <span class="chip go">Old site saved</span>
+        <span class="chip go">New home ready</span>
+        <span class="chip wait">DNS switch: Cosmo</span>
+        <span class="chip idea">Mock-up to try</span>
+      </div>
+      <p><a href="#" target="_blank" rel="noopener" style="font-family:var(--f-pixel);font-size:1.1rem;color:#fff">Open the mock-up →</a></p>
+    </div>
+    <div class="window"><img src="assets/logo.png" alt="The Elmgrove logo: a low-poly elm tree in sunglasses holding a gun, on a purple-to-green sky"></div>
+  </div>
+</header>
+
+<main>
+  <section class="room">
+    <div class="wrap">
+      <div class="stack"><p class="eyebrow">Where we are</p><h2>Same site since April 2024</h2></div>
+      <div class="ba">
+        <div class="old" aria-label="Sketch of the old home page">
+          <span class="t">Elmgrove Games!</span>
+          <span>We are a group of indie game devs out of Seattle, WA</span>
+          <img src="assets/logo.png" alt="" style="width:100%;image-rendering:pixelated">
+          <span class="nav">Games · Contact · Itch</span>
+          <small>Today: three pages, nine games on one long list</small>
+        </div>
+        <div class="board stack">
+          <h3>What holds it back</h3>
+          <ul class="plain">
+            <li>Each game gets one paragraph and an itch link.</li>
+            <li>Links wait 1.5 seconds before they go anywhere, and the back button and middle-click don't work.</li>
+            <li>Music tries to start by itself. Browsers block it, and visitors find it jarring.</li>
+            <li>No phone layout. Search engines and link previews see almost nothing.</li>
+            <li>The security certificate belongs to the host, not to us, so browsers warn people away.</li>
+          </ul>
+          <h3>What we keep</h3>
+          <ul class="plain">
+            <li>The tree in sunglasses. The Gold Box pixel font. The portal click. The Gobblin' tune.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="board stack">
+        <h3>The move, step 1</h3>
+        <p>The whole old site is saved in our new GitHub repo (<code>elmgrove-site</code>). GitHub Pages is set up for elmgrove.games, which means free hosting, a free certificate, and nothing to renew but the domain. Email becomes simple forwarding: <b>cosmo@, kyle@, krasiv@, robert@, team@</b> (and <b>contact@</b>) land in our own inboxes. Cosmo does four steps in Namecheap; the hosting stays until everything is checked.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="room" style="background:rgba(0,0,0,.22)">
+    <div class="wrap">
+      <div class="stack"><p class="eyebrow">The idea</p><h2>Climb into the tree</h2>
+        <p class="lede">You arrive at the elm from the logo, at dusk. Inside the trunk is a bunker of a treehouse: wood-panelled, warm, a little scrappy, with a row of arcade cabinets, one per game. Loot n' Goblin is our biggest hit, so the place is a bit goblin-y. Its loot is green emeralds, and its cover has the same purple-to-green sky as our logo. The new game stays a secret; at most, "something is digging under the roots".</p></div>
+      <div class="swatches" aria-label="Colour palette">
+        <div class="sw"><i style="background:var(--sky)"></i><span>Dusk sky (logo + Loot n' Goblin)</span></div>
+        <div class="sw"><i style="background:#170d22"></i><span>Night inside the trunk</span></div>
+        <div class="sw"><i style="background:#400968"></i><span>Cabinet purple (old site)</span></div>
+        <div class="sw"><i style="background:#c25cb1"></i><span>Marquee pink (old site)</span></div>
+        <div class="sw"><i style="background:#2fd25a"></i><span>Emerald loot</span></div>
+        <div class="sw"><i style="background:#6b4529"></i><span>Treehouse planks</span></div>
+        <div class="sw"><i style="background:#efe5d2"></i><span>Parchment notes</span></div>
+      </div>
+      <div class="grid2">
+        <div class="board stack"><h3 style="font-family:var(--f-display)">Gold Box 8x16</h3><p>Our old pixel font stays for headings and cabinet marquees. Running text uses a clear, easy-to-read face so the pages stay comfortable on phones.</p></div>
+        <div class="board stack"><h3>Fun, never in the way</h3><p>Every link is a real link and opens straight away. Sound stays off until you turn it on. Little things to find (emeralds hidden around the site) but nothing you have to do.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="room">
+    <div class="wrap">
+      <div class="stack"><p class="eyebrow">The arcade</p><h2>Our games, from the Elmgrove itch</h2>
+        <p class="lede">Up front, a mix of the most successful and the most recent. The rest go on a shelf in the back room. Every game gets its own page: art, screenshots, how it plays, who made it, and buttons to play in the browser or download from itch.</p></div>
+      <div class="grid4" id="cabs"></div>
+      <div class="stack"><h3>The back room</h3><div class="shelf" id="carts"></div></div>
+    </div>
+  </section>
+
+  <section class="room" style="background:rgba(0,0,0,.22)">
+    <div class="wrap">
+      <div class="stack"><p class="eyebrow">In the mock-up</p><h2>What you can click</h2></div>
+      <div class="grid2">
+        <div class="board feat"><span class="chip go tag">Built</span><h3>Game pages</h3><p>A big cabinet, facts (year, engine, platforms, what it was made for), screenshots you can open, a player quote, and play/download buttons.</p></div>
+        <div class="board feat"><span class="chip go tag">Built</span><h3>The jukebox</h3><p>A music player that keeps playing while you browse. It has the Gobblin' tune now; our soundtracks need adding (Q15).</p></div>
+        <div class="board feat"><span class="chip go tag">Built</span><h3>The emerald hunt</h3><p>Eight emeralds hidden around the treehouse, with a counter in the corner. Find them all and you're a true goblin. Room for more mini-games later.</p></div>
+        <div class="board feat"><span class="chip go tag">Built</span><h3>The crew</h3><p>Who we are, what each of us does, and every game we've made, year by year.</p></div>
+        <div class="board feat"><span class="chip idea tag">Example only</span><h3>Notice board</h3><p>Where devlogs, jam diaries and news would live, if we want them (Q18).</p></div>
+        <div class="board feat"><span class="chip idea tag">Question</span><h3>Concept art, press kit, newsletter</h3><p>Not in the mock-up. Your answers to Q19, Q21 and Q22 decide.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="room">
+    <div class="wrap">
+      <div class="stack"><p class="eyebrow">The plan</p><h2>Up the ladder</h2>
+        <p class="lede">Each rung ends saved and written down, so any session (or any of us) can pick it up. Claude manages; smaller models do the building; nothing goes live without being checked.</p></div>
+      <div class="road" id="road"></div>
+    </div>
+  </section>
+
+  <section class="room" style="background:rgba(0,0,0,.22)" id="questions">
+    <div class="wrap">
+      <div class="qhead">
+        <div class="stack"><p class="eyebrow">For the team</p><h2>The questions</h2>
+          <p class="lede">Draft v1, 32 questions. Answer together. "Mock-up" marks what the mock-up shows now. Ticks are kept only in this browser; when you're done, copy the answers and send them to Cosmo or paste them to Claude.</p></div>
+        <span class="tally" id="tally">0 / 32 answered</span>
+      </div>
+      <div id="qs" class="stack" style="gap:28px"></div>
+      <div class="out">
+        <div class="chips"><button class="act" id="copy" type="button">Copy our answers</button><button class="act ghost" id="clear" type="button">Clear</button></div>
+        <pre id="summary" aria-live="polite">No answers yet.</pre>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><span class="gem"></span>Elmgrove Games · indie game devs out of Seattle, WA</p>
+    <p>Source of this proposal: <code>docs/proposal.md</code> and <code>docs/questionnaire.md</code> in the elmgrove-site repo.</p>
+  </div>
+</footer>
+
+<script>
+const GAMES=[{"slug": "lootngoblin", "title": "Loot n' Goblin", "url": "https://elmgrove.itch.io/lootngoblin", "year": 2023, "status": "Released", "browser_playable": false, "screen": "assets/games/lootngoblin/cover.png"}, {"slug": "tunnels-of-set", "title": "Tunnels of Set", "url": "https://elmgrove.itch.io/tunnels-of-set", "year": 2023, "status": "In development", "browser_playable": false, "screen": "assets/games/tunnels-of-set/cover.png"}, {"slug": "befriend-all-humans", "title": "Befriend All Humans", "url": "https://elmgrove.itch.io/befriend-all-humans", "year": 2023, "status": "Released", "browser_playable": false, "screen": "assets/games/befriend-all-humans/cover.png"}, {"slug": "tomb-of-the-sun-god", "title": "Tomb of the Sun God", "url": "https://elmgrove.itch.io/tomb-of-the-sun-god", "year": 2018, "status": "Released", "browser_playable": true, "screen": "assets/games/tomb-of-the-sun-god/shot1.png"}, {"slug": "taskforce-zeta", "title": "Taskforce Zeta", "url": "https://elmgrove.itch.io/taskforce-zeta", "year": 2018, "status": "Released", "browser_playable": true, "screen": "assets/games/taskforce-zeta/old-site.gif"}, {"slug": "samurai-blues", "title": "Samurai Blues", "url": "https://elmgrove.itch.io/samurai-blues", "year": 2026, "status": "Released", "browser_playable": true, "screen": "assets/games/samurai-blues/cover.png"}, {"slug": "spirit-manor", "title": "Spirit Manor", "url": "https://elmgrove.itch.io/spirit-manor", "year": 2022, "status": "Released", "browser_playable": true, "screen": "assets/games/spirit-manor/shot1.png"}, {"slug": "shoujo-showdown", "title": "Shoujo Showdown", "url": "https://elmgrove.itch.io/shoujo-showdown", "year": 2015, "status": "Prototype", "browser_playable": true, "screen": "assets/games/shoujo-showdown/shot1.png"}];
+const FEATURED=["lootngoblin","tunnels-of-set","befriend-all-humans","tomb-of-the-sun-god"];
+const QUESTIONS=[{"n": 1, "group": "Who it's for and what goes on it", "text": "Who is the site mainly for?", "type": "single", "options": [{"text": "Players finding our games", "mock": false}, {"text": "Press, jam organisers and collaborators", "mock": false}, {"text": "Friends and family", "mock": false}, {"text": "All of them equally", "mock": false}]}, {"n": 2, "group": "Who it's for and what goes on it", "text": "Which games get the big arcade cabinets up front?", "type": "single", "options": [{"text": "Our pick: Loot n' Goblin, Tunnels of Set, Befriend All Humans, Tomb of the Sun God", "mock": true}, {"text": "Best rated only", "mock": false}, {"text": "Newest only", "mock": false}, {"text": "Every game equally, no \"featured\"", "mock": false}]}, {"n": 3, "group": "Who it's for and what goes on it", "text": "How many featured cabinets?", "type": "single", "options": [{"text": "3", "mock": false}, {"text": "4", "mock": true}, {"text": "6", "mock": false}, {"text": "Just Loot n' Goblin, big, then the rest", "mock": false}]}, {"n": 4, "group": "Who it's for and what goes on it", "text": "Older games?", "type": "single", "options": [{"text": "A \"back room\" shelf on the arcade page", "mock": true}, {"text": "A separate archive page", "mock": false}, {"text": "Hide the oldest ones", "mock": false}, {"text": "Treat all the same", "mock": false}]}, {"n": 5, "group": "Who it's for and what goes on it", "text": "Samurai Blues (newest, 2026, a work in progress with placeholder AI art and music)?", "type": "single", "options": [{"text": "Back room with a \"work in progress\" tag", "mock": true}, {"text": "Feature it as the newest", "mock": false}, {"text": "Hide it until finished", "mock": false}, {"text": "Take it off itch too", "mock": false}]}, {"n": 6, "group": "Who it's for and what goes on it", "text": "Games made with Odd Boss Games / cobb (SheepCreep, Party Crashers TD, MetaPizza Delivery; Befriend All Humans is co-made)?", "type": "single", "options": [{"text": "Full game pages like ours", "mock": false}, {"text": "A small \"made with friends\" shelf", "mock": false}, {"text": "Only Befriend All Humans, since it's on our itch", "mock": true}, {"text": "Leave them off", "mock": false}]}, {"n": 7, "group": "Who it's for and what goes on it", "text": "Game jams on the site?", "type": "single", "options": [{"text": "Hidden", "mock": false}, {"text": "A plain line on each game page: \"made for …\"", "mock": true}, {"text": "Badges with rankings", "mock": false}, {"text": "A whole jam-history page", "mock": false}]}, {"n": 8, "group": "Look and feel", "text": "Overall theme?", "type": "single", "options": [{"text": "Treehouse bunker inside the elm, with arcade cabinets", "mock": true}, {"text": "Daytime orchard on top, goblin den underneath", "mock": false}, {"text": "All dark goblin den", "mock": false}, {"text": "Clean and simple, light on theme", "mock": false}]}, {"n": 9, "group": "Look and feel", "text": "How goblin-y?", "type": "single", "options": [{"text": "Light touches (emerald loot, a few jokes)", "mock": true}, {"text": "Goblins everywhere: mascots, sprites, voice", "mock": false}, {"text": "Only on Loot n' Goblin's own page", "mock": false}, {"text": "Not goblin-y at all", "mock": false}]}, {"n": 10, "group": "Look and feel", "text": "The tree logo?", "type": "single", "options": [{"text": "Keep the 2024 pixel tree as is", "mock": true}, {"text": "Redraw it bigger in pixel art", "mock": false}, {"text": "A low-poly 3D render like the original model", "mock": false}, {"text": "A new logo later", "mock": false}]}, {"n": 11, "group": "Look and feel", "text": "Colours?", "type": "single", "options": [{"text": "Night purple, leaf green, emerald and wood", "mock": true}, {"text": "Darker and torchlit", "mock": false}, {"text": "Bright daytime orchard", "mock": false}, {"text": "Day/night switch", "mock": false}]}, {"n": 12, "group": "Look and feel", "text": "Fonts?", "type": "single", "options": [{"text": "Gold Box for headings, an easy-to-read font for text", "mock": true}, {"text": "Gold Box everywhere", "mock": false}, {"text": "A new pixel font", "mock": false}, {"text": "No pixel font", "mock": false}]}, {"n": 13, "group": "Look and feel", "text": "Motion?", "type": "single", "options": [{"text": "A little: cabinet glow, coin pops", "mock": true}, {"text": "Lots: animated sprites walking around", "mock": false}, {"text": "Almost none", "mock": false}]}, {"n": 14, "group": "Features", "text": "Music player (jukebox)?", "type": "single", "options": [{"text": "Yes, keeps playing while you browse", "mock": true}, {"text": "Only a track on each game's page", "mock": false}, {"text": "No music", "mock": false}]}, {"n": 15, "group": "Features", "text": "Which music would we put in it?", "type": "multi", "options": [{"text": "Loot n' Goblin soundtrack", "mock": false}, {"text": "other game soundtracks", "mock": false}, {"text": "new tracks made for the site", "mock": false}, {"text": "the old \"Gobblin'\" tune", "mock": false}, {"text": "none", "mock": false}]}, {"n": 16, "group": "Features", "text": "Playing our games on the site?", "type": "single", "options": [{"text": "Buttons that open itch", "mock": true}, {"text": "Embed the itch widget on each page", "mock": false}, {"text": "Host our browser builds on our own site", "mock": false}, {"text": "Downloads from our own site too", "mock": false}]}, {"n": 17, "group": "Features", "text": "Mini-games?", "type": "single", "options": [{"text": "The emerald hunt only", "mock": true}, {"text": "A small browser toy (goblin clicker, loot-the-chest)", "mock": false}, {"text": "A playable demo of one of our games", "mock": false}, {"text": "None", "mock": false}]}, {"n": 18, "group": "Features", "text": "Devlogs and news?", "type": "single", "options": [{"text": "None", "mock": false}, {"text": "A notice board for occasional news", "mock": true}, {"text": "Regular devlogs", "mock": false}, {"text": "Devlogs plus jam diaries", "mock": false}]}, {"n": 19, "group": "Features", "text": "Concept art and behind-the-scenes?", "type": "single", "options": [{"text": "A gallery page", "mock": false}, {"text": "A \"behind the scenes\" board on each game page", "mock": true}, {"text": "Later, when we have more", "mock": false}, {"text": "Not on the site", "mock": false}]}, {"n": 20, "group": "Features", "text": "Team page?", "type": "single", "options": [{"text": "Names, roles and pixel portraits", "mock": true}, {"text": "Photos", "mock": false}, {"text": "Names only", "mock": false}, {"text": "No team page", "mock": false}]}, {"n": 21, "group": "Features", "text": "Press kit (logo, screenshots, facts to download)?", "type": "single", "options": [{"text": "Now", "mock": false}, {"text": "When a demo is near", "mock": false}, {"text": "Not needed", "mock": false}]}, {"n": 22, "group": "Features", "text": "Mailing list?", "type": "single", "options": [{"text": "Yes, a free newsletter service", "mock": false}, {"text": "Later, at the demo", "mock": false}, {"text": "No", "mock": false}]}, {"n": 23, "group": "Features", "text": "Links to show", "type": "multi", "options": [{"text": "itch.io", "mock": false}, {"text": "YouTube", "mock": false}, {"text": "Discord", "mock": false}, {"text": "Bluesky", "mock": false}, {"text": "X/Twitter", "mock": false}, {"text": "Instagram", "mock": false}, {"text": "TikTok", "mock": false}, {"text": "Ko-fi/Patreon", "mock": false}, {"text": "Steam (later)", "mock": false}]}, {"n": 24, "group": "Features", "text": "Community?", "type": "single", "options": [{"text": "Link to a Discord server", "mock": false}, {"text": "Comments on posts", "mock": false}, {"text": "Just email", "mock": false}, {"text": "Nothing yet", "mock": false}]}, {"n": 25, "group": "The next game", "text": "Before the demo, the next game on the site is…", "type": "single", "options": [{"text": "Not mentioned", "mock": false}, {"text": "A nameless teaser: \"Something is digging under the roots\"", "mock": true}, {"text": "Its name and a teaser image", "mock": false}, {"text": "A full page", "mock": false}]}, {"n": 26, "group": "The next game", "text": "When does it get its own page?", "type": "single", "options": [{"text": "At announcement", "mock": false}, {"text": "When the demo is out", "mock": false}, {"text": "When a Steam page exists", "mock": false}, {"text": "Not decided", "mock": false}]}, {"n": 27, "group": "Running the site", "text": "Who updates the site?", "type": "single", "options": [{"text": "Cosmo with Claude", "mock": false}, {"text": "Anyone, by editing a game's text file on GitHub", "mock": false}, {"text": "Both", "mock": false}]}, {"n": 28, "group": "Running the site", "text": "Contact?", "type": "single", "options": [{"text": "`team@elmgrove.games` shown with a copy button", "mock": true}, {"text": "`contact@` instead", "mock": false}, {"text": "Each person's alias listed", "mock": false}, {"text": "A form", "mock": false}]}, {"n": 29, "group": "Running the site", "text": "Footer name?", "type": "single", "options": [{"text": "\"©Kybrastein LLC\" (old site)", "mock": false}, {"text": "\"Elmgrove Games\"", "mock": false}, {"text": "\"Elmgrove Games, a Kybrastein LLC studio\"", "mock": false}]}, {"n": 30, "group": "Running the site", "text": "Visitor counts?", "type": "single", "options": [{"text": "None", "mock": false}, {"text": "A simple privacy-friendly counter (no cookies)", "mock": false}, {"text": "Google Analytics", "mock": false}]}, {"n": 31, "group": "Running the site", "text": "Languages?", "type": "single", "options": [{"text": "English only", "mock": false}, {"text": "English now, Japanese later", "mock": false}, {"text": "Both from the start", "mock": false}]}, {"n": 32, "group": "Running the site", "text": "Anything the mock-up is missing?", "type": "free", "options": []}];
+const ROAD=[
+ ["0","done","Save the old site, make the new home","Every page and file archived; repo and GitHub Pages ready.","Claude"],
+ ["1","now","Switch the address and the email","Four steps in Namecheap; Claude checks and turns on HTTPS; we test every alias. Hosting off only after a quiet week.","Cosmo + Claude"],
+ ["2","done","Gather our games","All eight Elmgrove itch pages: art, screenshots, years, jams. Still missing: soundtracks and team credits.","Haiku (a small model) + Claude"],
+ ["2.5","now","The mock-up","Click through the treehouse with the team.","Sonnet builds, Claude reviews"],
+ ["3","","Answer the questions","This page. Cosmo may add more context first.","The team"],
+ ["4","","Design spec","The final design from your answers, plus 2–3 home page looks to vote on.","Claude (strongest model)"],
+ ["5","","Build it","Piece by piece: layout, game pages, home, crew, jukebox and fun, then checks for phones and speed.","Sonnet builds, Claude reviews each piece"],
+ ["6","","Launch","Swap in the new site; old links keep working.","Claude"],
+ ["7","","Later","The new game's page when we're ready, devlogs, press kit.","When a demo is near"]];
+
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const small=src=>/tomb-of-the-sun-god\/shot|taskforce|spirit|shoujo/.test(src);
+const bySlug=Object.fromEntries(GAMES.map(g=>[g.slug,g]));
+document.getElementById('cabs').innerHTML=FEATURED.map(s=>{const g=bySlug[s];return `<a class="cab" href="${esc(g.url)}" target="_blank" rel="noopener">
+  <span class="marq">${esc(g.title)}</span><span class="body"><span class="scr"><img src="${esc(g.screen)}" alt="${esc(g.title)}" class="${small(g.screen)?'px':''}" loading="lazy"></span>
+  <span class="panel"><i class="stick"></i><i class="btn"></i><i class="btn"></i></span></span>
+  <span class="meta">${g.year} · ${g.browser_playable?'plays in browser':'download'}</span></a>`}).join('');
+document.getElementById('carts').innerHTML=GAMES.filter(g=>!FEATURED.includes(g.slug)).sort((a,b)=>b.year-a.year).map(g=>`<a class="cart" href="${esc(g.url)}" target="_blank" rel="noopener">
+  <img src="${esc(g.screen)}" alt="" loading="lazy"><b>${esc(g.title)}</b><small>${g.year}${g.status&&/progress|development/i.test(g.status)?' · work in progress':''}</small></a>`).join('');
+document.getElementById('road').innerHTML=ROAD.map(([n,st,t,d,w])=>`<div class="step ${st}"><span class="rung">${n}</span><div class="stack" style="gap:4px"><h3>${esc(t)}</h3><p>${esc(d)}</p><span class="who">${esc(w)}</span></div></div>`).join('');
+
+let ans={};try{ans=JSON.parse(localStorage.getItem('elm-q')||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem('elm-q',JSON.stringify(ans))}catch(e){}};
+let html='',cur='';
+QUESTIONS.forEach(q=>{
+  if(q.group!==cur){if(cur)html+='</div>';cur=q.group;html+=`<div class="qgroup"><h3>${esc(q.group)}</h3>`;}
+  const multi=q.type==='multi',free=q.type==='free';
+  html+=`<div class="q" id="q${q.n}"><p class="qt"><span class="n">${q.n}.</span>${esc(q.text)}${multi?' <i style="font-weight:400">(pick any)</i>':''}</p>`;
+  if(free)html+=`<textarea id="t${q.n}" data-q="${q.n}" aria-label="Answer to question ${q.n}"></textarea>`;
+  else html+=`<div class="opts">${q.options.map((o,i)=>`<label class="opt"><input type="${multi?'checkbox':'radio'}" name="q${q.n}" id="q${q.n}o${i}" value="${i}" data-q="${q.n}"><span>${esc(o.text)}${o.mock?'<span class="mock">mock-up</span>':''}</span></label>`).join('')}</div>`;
+  html+='</div>';
+});
+document.getElementById('qs').innerHTML=html+'</div>';
+function restore(){QUESTIONS.forEach(q=>{const a=ans[q.n];if(a==null)return;
+  if(q.type==='free'){document.getElementById('t'+q.n).value=a}
+  else [].concat(a).forEach(i=>{const el=document.getElementById(`q${q.n}o${i}`);if(el)el.checked=true})})}
+function letter(i){return String.fromCharCode(97+i)}
+function render(){let n=0;const lines=[];
+  QUESTIONS.forEach(q=>{const a=ans[q.n];const has=a!=null&&a!==''&&!(Array.isArray(a)&&!a.length);
+    document.getElementById('q'+q.n).classList.toggle('answered',has);if(!has)return;n++;
+    let t;if(q.type==='free')t=a;else if(q.type==='multi')t=a.map(i=>q.options[i].text).join(', ');else t=`${letter(a)}) ${q.options[a].text}`;
+    lines.push(`${q.n}. ${t}`)});
+  document.getElementById('tally').textContent=`${n} / ${QUESTIONS.length} answered`;
+  document.getElementById('summary').textContent=lines.length?'Elmgrove questionnaire v1 answers\n'+lines.join('\n'):'No answers yet.';}
+document.getElementById('qs').addEventListener('input',e=>{const el=e.target,qn=+el.dataset.q;if(!qn)return;const q=QUESTIONS.find(x=>x.n===qn);
+  if(q.type==='free')ans[qn]=el.value;
+  else if(q.type==='multi')ans[qn]=[...document.querySelectorAll(`input[name="q${qn}"]:checked`)].map(x=>+x.value);
+  else ans[qn]=+el.value;save();render()});
+document.getElementById('copy').addEventListener('click',()=>{const b=document.getElementById('copy'),txt=document.getElementById('summary').textContent;
+  navigator.clipboard?.writeText(txt).then(()=>{b.textContent='Copied'}).catch(()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('summary'));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected: copy it'});
+  setTimeout(()=>b.textContent='Copy our answers',2000)});
+let armed=false;document.getElementById('clear').addEventListener('click',e=>{const b=e.target;if(!armed){armed=true;b.textContent='Tap again to clear';setTimeout(()=>{armed=false;b.textContent='Clear'},2500);return}
+  ans={};save();document.querySelectorAll('#qs input').forEach(i=>i.checked=false);document.querySelectorAll('#qs textarea').forEach(t=>t.value='');armed=false;b.textContent='Clear';render()});
+restore();render();
+</script>
